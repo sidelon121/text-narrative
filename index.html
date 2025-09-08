@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jatara Evolves: From a Sinking City to a Smart City</title>
+    <style>
+        /* Warna elegan: gradasi biru gelap sebagai dasar, aksen perak dan emas untuk kemewahan futuristik */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #0a1f2e, #1b2631, #2a3b4d);
+            /* Gradasi biru gelap elegan */
+            color: #e0e6f0;
+            /* Abu-abu terang */
+            min-height: 100vh;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        /* Efek partikel latar belakang untuk kesan futuristik */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 30%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(192, 192, 192, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(0, 255, 255, 0.1) 0%, transparent 50%);
+            animation: twinkle 10s infinite;
+            z-index: -2;
+            pointer-events: none;
+        }
+
+        @keyframes twinkle {
+
+            0%,
+            100% {
+                opacity: 0.3;
+            }
+
+            50% {
+                opacity: 0.6;
+            }
+        }
+
+        header {
+            background: rgba(0, 13, 32, 0.9);
+            padding: 2rem 1rem;
+            text-align: center;
+            border-bottom: 3px solid #d4af37;
+            /* Emas elegan */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.8rem;
+            color: #d4af37;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 2px 2px 6px rgba(212, 175, 55, 0.5);
+            }
+
+            to {
+                text-shadow: 2px 2px 12px rgba(212, 175, 55, 1);
+            }
+        }
+
+        main {
+            flex: 1;
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .section {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            margin-bottom: 2.5rem;
+            padding: 2rem;
+            box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.05), 0 8px 25px rgba(0, 0, 0, 0.3);
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            transform: translateY(50px);
+            opacity: 0;
+            animation: slideIn 1s ease-out forwards;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: inset 0 0 30px rgba(255, 255, 255, 0.1), 0 12px 35px rgba(0, 0, 0, 0.4);
+        }
+
+        .section:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+
+        .section:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        .section:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+
+        .section:nth-child(4) {
+            animation-delay: 0.8s;
+        }
+
+        .section:nth-child(5) {
+            animation-delay: 1s;
+        }
+
+        @keyframes slideIn {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .text-content {
+            flex: 1;
+            opacity: 0;
+            animation: fadeInText 1.5s ease forwards;
+            animation-delay: 0.5s;
+        }
+
+        @keyframes fadeInText {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .text-content h2 {
+            margin-top: 0;
+            color: #a8b5c7;
+            /* Perak elegan */
+            font-size: 1.8rem;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+
+        .text-content h2::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: #d4af37;
+            margin-top: 0.5rem;
+            animation: underlineAnimate 1s ease forwards;
+            animation-delay: 1.2s;
+        }
+
+        @keyframes underlineAnimate {
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 50px;
+            }
+        }
+
+        .text-content p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #d9e1f2;
+            text-align: justify;
+        }
+
+        .image-content {
+            flex: 1;
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+            min-height: 300px;
+            /* Placeholder untuk gambar */
+        }
+
+        .image-content .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(212, 175, 55, 0.1), rgba(168, 181, 199, 0.1));
+            opacity: 0;
+            animation: overlayPulse 4s ease-in-out infinite;
+        }
+
+        @keyframes overlayPulse {
+
+            0%,
+            100% {
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 0.3;
+            }
+        }
+
+        .image-content img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            animation: floatSlide 6s ease-in-out infinite;
+            filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.5));
+            border-radius: 12px;
+        }
+
+        @keyframes floatSlide {
+            0% {
+                transform: translateY(0) scale(1);
+            }
+
+            50% {
+                transform: translateY(-10px) scale(1.05);
+            }
+
+            100% {
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* Shimmer efek untuk gambar */
+        .shimmer-effect {
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.2) 50%, transparent 100%);
+            animation: shimmer 3s infinite;
+            pointer-events: none;
+        }
+
+        @keyframes shimmer {
+            0% {
+                left: -100%;
+            }
+
+            100% {
+                left: 100%;
+            }
+        }
+
+        footer {
+            background: rgba(0, 13, 32, 0.9);
+            text-align: center;
+            padding: 1.5rem;
+            color: #a8b5c7;
+            font-size: 0.9rem;
+            border-top: 3px solid #d4af37;
+            animation: footerBounceUp 2s ease forwards;
+            margin-top: 3rem;
+        }
+
+        @keyframes footerBounceUp {
+            0% {
+                transform: translateY(100px);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Responsif */
+        @media (max-width: 768px) {
+            .section {
+                flex-direction: column;
+                padding: 1.5rem 1rem;
+            }
+
+            .image-content {
+                min-height: 250px;
+            }
+
+            .text-content h2 {
+                font-size: 1.5rem;
+            }
+
+            .text-content p {
+                font-size: 1rem;
+            }
+
+            header h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Jatara Evolves: From a Sinking City to a Smart City</h1>
+    </header>
+
+    <main>
+        <div class="section">
+            <div class="image-content">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/47a25a77-2f83-4a81-8413-99b3935dcdde.png"
+                    alt="Dramatic view of Jantara City in 2040 showing flooded streets with waterlogged buildings, rising seas engulfing skyscrapers, houses submerged under murky water, dark stormy skies with heavy rain pouring non-stop for six months, abandoned vehicles floating, once bustling metropolis now a ghost town with eerie silence" />
+                <div class="shimmer-effect"></div>
+                <div class="overlay"></div>
+            </div>
+            <div class="text-content">
+                <h2>Orientation</h2>
+                <p>In 2040, Jantara City—a once-thriving metropolis and center of government—is threatened with sinking
+                    due to rising sea levels and subsidence, also caused by climate change, exacerbated by melting polar
+                    ice, causing sea levels to rise drastically. The disaster predicted to sink the city in 2050
+                    occurred a decade earlier. Heavy rains poured down non-stop for six straight months, turning the
+                    bustling city into a waterlogged ghost town.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="text-content">
+                <h2>Complications</h2>
+                <p>The flood paralyzed every sector: transportation, electricity, education, and the economy. Jantara
+                    was grim-faced, silent, and... drowning. In desperation, the city government announced a major
+                    competition: any scientist who could save Jantara would be rewarded handsomely. Brilliant minds from
+                    around the world gathered, bringing innovative ideas.</p>
+            </div>
+            <div class="image-content">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/023aec34-b1f1-4fdb-90a1-259ed19dfa6e.png"
+                    alt="Chaotic scene of flooded Jantara with paralyzed infrastructure, empty dark streets filled with stagnant water reflecting broken streetlights, halted trains and buses submerged, people grim-faced evacuating with belongings, scientists conferring in makeshift tents amidst pouring rain and urban desolation" />
+                <div class="shimmer-effect"></div>
+                <div class="overlay"></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="image-content">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/4db11a49-c2cc-40e7-9cb9-dc842ae68dd2.png"
+                    alt="Scientist in a futuristic lab presenting GeoStabilizer device emitting stabilizing beams, another machine HydroPure purifying seawater into clean water, group of innovative researchers brainstorming with holographic displays, mixing modern technology with scientific greed themes, elegant lab setting with glowing instruments" />
+                <div class="shimmer-effect"></div>
+                <div class="overlay"></div>
+            </div>
+            <div class="text-content">
+                <h2>Evaluation</h2>
+                <p>One scientist introduces the GeoStabilizer, a device to prevent land subsidence, while another
+                    creates HydroPure, a machine to convert seawater into clean water. However, a new problem arises:
+                    the scientists are demanding full patent rights. If granted, this life-saving technology will be
+                    costly, leaving the residents in dire straits. The dying city risks falling into despair again, this
+                    time not because of water, but because of greed.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="text-content">
+                <h2>Resolution</h2>
+                <p>To avoid chaos, the city council reached a compromise. The scientists were granted a futuristic,
+                    exclusive zone as their own, complete with luxury, security, and the freedom to continue their
+                    research. In return, the GeoStabilizer and HydroPure technologies were released for public use at no
+                    extra cost. This balance allowed the city to breathe a sigh of relief—its citizens were relieved,
+                    and the scientists remained respected.</p>
+            </div>
+            <div class="image-content">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/1f3e1ea1-b971-4cc9-8db8-4cececa3406d.png"
+                    alt="City council members negotiating in an opulent meeting hall, futuristic exclusive zone with scientists in luxury compounds, showing compromise with balanced technology sharing, serene atmosphere with holographic maps of the city, elegant blend of authority and innovation" />
+                <div class="shimmer-effect"></div>
+                <div class="overlay"></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="image-content">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/7cf700ea-69cf-4447-a0ae-721320be20eb.png"
+                    alt="Transformed Jatara by 2050 as a thriving smart city with advanced skyscrapers, greenery integrated into urban landscape, citizens using renewable energy sources, seawater treatment plants humming efficiently, eco-conscious society with solar panels and wind turbines, futuristic harmony between technology and nature" />
+                <div class="shimmer-effect"></div>
+                <div class="overlay"></div>
+            </div>
+            <div class="text-content">
+                <h2>Code</h2>
+                <p>By 2050, Jantara has transformed into a new, more advanced metropolis than ever before. Its citizens
+                    have become more environmentally conscious: waste is recycled into renewable energy, seawater is
+                    treated to produce clean water, and society is no longer repeating the mistakes of the past. The
+                    city survives not only because of technology, but also because society and science have finally
+                    learned to work hand in hand.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Jatara Evolves. Designed with elegance and innovation.</p>
+
+        <body>
+            FAHRI-FARHAN-NAZWA
+        </body>
+    </footer>
+
+    <script>
+        // JavaScript untuk interaktivitas tambahan: klik gambar untuk efek sementara
+        document.addEventListener('DOMContentLoaded', function () {
+            const images = document.querySelectorAll('.image-content img');
+            images.forEach(img => {
+                img.addEventListener('click', () => {
+                    img.style.animationPlayState = 'paused';
+                    img.style.transform = 'scale(1.1)';
+                    setTimeout(() => {
+                        img.style.animationPlayState = 'running';
+                        img.style.transform = '';
+                    }, 2000);
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
+</content>
+</create_file>
