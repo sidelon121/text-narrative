@@ -2,27 +2,20 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Jatara Evolves: From a Sinking City to a Smart City</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jatara Evolves: From A Sinking City, To A Smart City</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Warna elegan: gradasi biru gelap sebagai dasar, aksen perak dan emas untuk kemewahan futuristik */
         body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', sans-serif;
-            background: linear-gradient(135deg, #0a1f2e, #1b2631, #2a3b4d);
-            /* Gradasi biru gelap elegan */
-            color: #e0e6f0;
-            /* Abu-abu terang */
+            font-family: 'Comic Sans MS', cursive;
+            background: linear-gradient(180deg, #000428 0%, #004e92 50%, #009ffd 100%);
+            color: #ffffff;
             min-height: 100vh;
             overflow-x: hidden;
-            display: flex;
-            flex-direction: column;
             position: relative;
         }
 
-        /* Efek partikel latar belakang untuk kesan futuristik */
         body::before {
             content: '';
             position: fixed;
@@ -30,402 +23,596 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle at 20% 30%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 70%, rgba(192, 192, 192, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 50% 50%, rgba(0, 255, 255, 0.1) 0%, transparent 50%);
-            animation: twinkle 10s infinite;
-            z-index: -2;
-            pointer-events: none;
+            opacity: 0.1;
+            z-index: -1;
         }
 
-        @keyframes twinkle {
-
-            0%,
-            100% {
-                opacity: 0.3;
-            }
-
-            50% {
-                opacity: 0.6;
-            }
+        .storyboard {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 30px;
+            perspective: 1000px;
         }
 
-        header {
-            background: rgba(0, 13, 32, 0.9);
-            padding: 2rem 1rem;
-            text-align: center;
-            border-bottom: 3px solid #d4af37;
-            /* Emas elegan */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        .panel {
+            background: linear-gradient(135deg, #333 0%, #666 100%);
+            border: 5px solid #ff6b6b;
+            border-radius: 25px;
+            margin-bottom: 50px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.9);
             position: relative;
-            overflow: hidden;
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 2.8rem;
-            color: #d4af37;
-            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
-            animation: glow 2s ease-in-out infinite alternate;
-        }
-
-        @keyframes glow {
-            from {
-                text-shadow: 2px 2px 6px rgba(212, 175, 55, 0.5);
-            }
-
-            to {
-                text-shadow: 2px 2px 12px rgba(212, 175, 55, 1);
-            }
-        }
-
-        main {
-            flex: 1;
-            max-width: 1000px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-
-        .section {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 16px;
-            margin-bottom: 2.5rem;
-            padding: 2rem;
-            box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.05), 0 8px 25px rgba(0, 0, 0, 0.3);
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-            transform: translateY(50px);
+            transform: rotateY(10deg) scale(0.9);
             opacity: 0;
-            animation: slideIn 1s ease-out forwards;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: panelEntrance 1.5s ease-out forwards;
+            transition: all 0.6s ease;
         }
 
-        .section:hover {
-            transform: translateY(-5px) scale(1.02);
-            box-shadow: inset 0 0 30px rgba(255, 255, 255, 0.1), 0 12px 35px rgba(0, 0, 0, 0.4);
+        .panel:hover {
+            transform: rotateY(0deg) scale(1.08) translateZ(50px);
+            box-shadow: 0 30px 60px rgba(255, 107, 107, 0.8);
         }
 
-        .section:nth-child(1) {
-            animation-delay: 0.2s;
-        }
-
-        .section:nth-child(2) {
-            animation-delay: 0.4s;
-        }
-
-        .section:nth-child(3) {
-            animation-delay: 0.6s;
-        }
-
-        .section:nth-child(4) {
-            animation-delay: 0.8s;
-        }
-
-        .section:nth-child(5) {
-            animation-delay: 1s;
-        }
-
-        @keyframes slideIn {
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        .text-content {
-            flex: 1;
-            opacity: 0;
-            animation: fadeInText 1.5s ease forwards;
-            animation-delay: 0.5s;
-        }
-
-        @keyframes fadeInText {
-            to {
-                opacity: 1;
-            }
-        }
-
-        .text-content h2 {
-            margin-top: 0;
-            color: #a8b5c7;
-            /* Perak elegan */
-            font-size: 1.8rem;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-            position: relative;
-        }
-
-        .text-content h2::after {
-            content: '';
-            display: block;
-            width: 50px;
-            height: 3px;
-            background: #d4af37;
-            margin-top: 0.5rem;
-            animation: underlineAnimate 1s ease forwards;
-            animation-delay: 1.2s;
-        }
-
-        @keyframes underlineAnimate {
-            from {
-                width: 0;
-            }
-
-            to {
-                width: 50px;
-            }
-        }
-
-        .text-content p {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            color: #d9e1f2;
-            text-align: justify;
-        }
-
-        .image-content {
-            flex: 1;
-            position: relative;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
-            min-height: 300px;
-            /* Placeholder untuk gambar */
-        }
-
-        .image-content .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, rgba(212, 175, 55, 0.1), rgba(168, 181, 199, 0.1));
-            opacity: 0;
-            animation: overlayPulse 4s ease-in-out infinite;
-        }
-
-        @keyframes overlayPulse {
-
-            0%,
-            100% {
+        @keyframes panelEntrance {
+            0% {
+                transform: rotateY(20deg) scale(0.7) translateY(50px);
                 opacity: 0;
             }
 
             50% {
-                opacity: 0.3;
+                transform: rotateY(-5deg) scale(0.9) translateY(-10px);
+            }
+
+            100% {
+                transform: rotateY(10deg) scale(0.9);
+                opacity: 1;
             }
         }
 
-        .image-content img {
+        .panel-title {
+            font-size: 2.5rem;
+            color: #ffe66d;
+            text-align: center;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            font-weight: bold;
+            text-shadow: 3px 3px 0px #ff6b6b;
+            animation: titleGlow 3s infinite alternate;
+        }
+
+        @keyframes titleGlow {
+            from {
+                text-shadow: 0 0 10px #ffe66d;
+            }
+
+            to {
+                text-shadow: 0 0 20px #ffe66d, 0 0 30px #ffe66d, 0 0 40px #ffe66d;
+            }
+        }
+
+        .image-container {
+            width: 100%;
+            height: 400px;
+            background: radial-gradient(circle, #000 0%, #555 100%);
+            border-radius: 20px;
+            margin-bottom: 25px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 3px solid #ffe66d;
+            box-shadow: inset 0 0 30px rgba(255, 230, 109, 0.3);
+        }
+
+        .panel img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            display: block;
-            animation: floatSlide 6s ease-in-out infinite;
-            filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.5));
-            border-radius: 12px;
+            border-radius: 20px;
+            transition: transform 0.5s ease, filter 0.5s ease;
         }
 
-        @keyframes floatSlide {
+        .panel:hover img {
+            transform: scale(1.2) rotate(2deg);
+            filter: brightness(1.3) contrast(1.2) saturate(1.1);
+        }
+
+        .narration {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 25px;
+            border-radius: 20px;
+            color: #ffffff;
+            border: 2px solid #ff6b6b;
+            position: relative;
+            animation: narrationFlip 1s ease-out;
+        }
+
+        @keyframes narrationFlip {
             0% {
-                transform: translateY(0) scale(1);
-            }
-
-            50% {
-                transform: translateY(-10px) scale(1.05);
-            }
-
-            100% {
-                transform: translateY(0) scale(1);
-            }
-        }
-
-        /* Shimmer efek untuk gambar */
-        .shimmer-effect {
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.2) 50%, transparent 100%);
-            animation: shimmer 3s infinite;
-            pointer-events: none;
-        }
-
-        @keyframes shimmer {
-            0% {
-                left: -100%;
-            }
-
-            100% {
-                left: 100%;
-            }
-        }
-
-        footer {
-            background: rgba(0, 13, 32, 0.9);
-            text-align: center;
-            padding: 1.5rem;
-            color: #a8b5c7;
-            font-size: 0.9rem;
-            border-top: 3px solid #d4af37;
-            animation: footerBounceUp 2s ease forwards;
-            margin-top: 3rem;
-        }
-
-        @keyframes footerBounceUp {
-            0% {
-                transform: translateY(100px);
+                transform: rotateX(90deg);
                 opacity: 0;
             }
 
+            50% {
+                transform: rotateX(45deg);
+            }
+
             100% {
-                transform: translateY(0);
+                transform: rotateX(0deg);
                 opacity: 1;
             }
         }
 
-        /* Responsif */
+        .narration::before {
+            content: "[NARRATION]";
+            font-size: 1rem;
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            background: #ff6b6b;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 10px;
+        }
+
+        .speech-bubble {
+            position: absolute;
+            background: #fff;
+            color: #000;
+            padding: 15px 20px;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            max-width: 280px;
+            bottom: 20px;
+            right: 20px;
+            box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.5);
+            animation: bubbleSwing 2s infinite ease-in-out;
+        }
+
+        @keyframes bubbleSwing {
+
+            0%,
+            50%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            25% {
+                transform: translateY(-10px) rotate(1deg);
+            }
+
+            75% {
+                transform: translateY(-5px) rotate(-1deg);
+            }
+        }
+
+        .speech-bubble::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            right: 35px;
+            border-left: 12px solid transparent;
+            border-right: 12px solid transparent;
+            border-top: 12px solid #fff;
+        }
+
+        .transition-arrow {
+            text-align: center;
+            font-size: 4rem;
+            color: #ffe66d;
+            margin: 40px 0;
+            animation: arrowBounce 2s infinite;
+        }
+
+        @keyframes arrowBounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0);
+            }
+
+            40% {
+                transform: translateY(-20px);
+            }
+
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .sound-effect {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            font-size: 1.8rem;
+            color: #ff6b6b;
+            font-weight: bold;
+            text-transform: uppercase;
+            animation: soundVibrate 1.5s infinite;
+            text-shadow: 1px 1px 0px #000;
+        }
+
+        @keyframes soundVibrate {
+
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+
+            25% {
+                transform: translateX(-5px);
+            }
+
+            75% {
+                transform: translateX(5px);
+            }
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 20;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            animation: zoomIn 0.6s ease-out;
+            border: 5px solid #ffe66d;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes zoomIn {
+            from {
+                transform: scale(0.8);
+            }
+
+            to {
+                transform: scale(1);
+            }
+        }
+
+        .close {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            color: #ffe66d;
+            font-size: 30px;
+            cursor: pointer;
+            background: #000;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            transition: transform 0.3s ease;
+        }
+
+        .close:hover {
+            transform: scale(1.2);
+        }
+
+        .extra-bubble {
+            position: absolute;
+            background: #ffe66d;
+            color: #000;
+            padding: 8px 12px;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+            animation: extraBubbleFloat 3s infinite ease-in-out;
+        }
+
+        @keyframes extraBubbleFloat {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
         @media (max-width: 768px) {
-            .section {
-                flex-direction: column;
-                padding: 1.5rem 1rem;
+            .panel-title {
+                font-size: 2rem;
             }
 
-            .image-content {
-                min-height: 250px;
+            .narration {
+                font-size: 1.1rem;
             }
 
-            .text-content h2 {
-                font-size: 1.5rem;
-            }
-
-            .text-content p {
-                font-size: 1rem;
-            }
-
-            header h1 {
-                font-size: 2.2rem;
+            .panel {
+                padding: 20px;
             }
         }
     </style>
 </head>
 
-<body>
-    <header>
-        <h1>Jatara Evolves: From a Sinking City to a Smart City</h1>
+<body class="p-5">
+    <header class="text-center py-12">
+        <h1 class="text-8xl font-bold text-yellow-300 drop-shadow-2xl animate-pulse">Jatara Evolves</h1>
+        <p class="text-5xl text-red-400 mt-4 drop-shadow-lg">From A Sinking City, To A Smart City</p>
+        <p class="text-3xl text-white mt-6">BY FAHRI-FARHAN-NAZWA</p>
     </header>
 
-    <main>
-        <div class="section">
-            <div class="image-content">
-                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/47a25a77-2f83-4a81-8413-99b3935dcdde.png"
-                    alt="Dramatic view of Jantara City in 2040 showing flooded streets with waterlogged buildings, rising seas engulfing skyscrapers, houses submerged under murky water, dark stormy skies with heavy rain pouring non-stop for six months, abandoned vehicles floating, once bustling metropolis now a ghost town with eerie silence" />
-                <div class="shimmer-effect"></div>
-                <div class="overlay"></div>
+    <div class="storyboard">
+        <!-- Panel 1: Orientation -->
+        <div class="panel" onclick="openModal(1)">
+            <div class="panel-title">Orientation</div>
+            <div class="image-container">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/41bb6b0d-a2f4-4433-962b-1dedf5a4cd58.png"
+                    alt="Epic panoramic view of Jatara City in 2040 as a gleaming modern metropolis with towering glass skyscrapers, bustling traffic, and government buildings, suddenly showing dark ominous clouds gathering and water creeping up the streets due to rising sea levels from melting polar ice, with dramatic lighting and a sense of impending doom, illustrated in a dynamic comic style with bold lines and vibrant city colors" />
+                <div class="extra-bubble" style="top: 20px; left: 20px; max-width: 150px;">KLUNK! SPLASH!</div>
             </div>
-            <div class="text-content">
-                <h2>Orientation</h2>
-                <p>In 2040, Jantara City—a once-thriving metropolis and center of government—is threatened with sinking
-                    due to rising sea levels and subsidence, also caused by climate change, exacerbated by melting polar
-                    ice, causing sea levels to rise drastically. The disaster predicted to sink the city in 2050
-                    occurred a decade earlier. Heavy rains poured down non-stop for six straight months, turning the
-                    bustling city into a waterlogged ghost town.</p>
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="text-content">
-                <h2>Complications</h2>
-                <p>The flood paralyzed every sector: transportation, electricity, education, and the economy. Jantara
-                    was grim-faced, silent, and... drowning. In desperation, the city government announced a major
-                    competition: any scientist who could save Jantara would be rewarded handsomely. Brilliant minds from
-                    around the world gathered, bringing innovative ideas.</p>
-            </div>
-            <div class="image-content">
-                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/023aec34-b1f1-4fdb-90a1-259ed19dfa6e.png"
-                    alt="Chaotic scene of flooded Jantara with paralyzed infrastructure, empty dark streets filled with stagnant water reflecting broken streetlights, halted trains and buses submerged, people grim-faced evacuating with belongings, scientists conferring in makeshift tents amidst pouring rain and urban desolation" />
-                <div class="shimmer-effect"></div>
-                <div class="overlay"></div>
+            <div class="sound-effect">BOOM WAVE</div>
+            <div class="narration">
+                In 2040, mighty Jatara City—a beacon of progress—was under brutal siege! Surging seas and crumbling
+                land, unleashed by furious climate change, struck a brutal decade early. Torrential rains pummeled for
+                six relentless months, drowning the vibrant metropolis in a haunted waterscape of despair.
             </div>
         </div>
 
-        <div class="section">
-            <div class="image-content">
-                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/4db11a49-c2cc-40e7-9cb9-dc842ae68dd2.png"
-                    alt="Scientist in a futuristic lab presenting GeoStabilizer device emitting stabilizing beams, another machine HydroPure purifying seawater into clean water, group of innovative researchers brainstorming with holographic displays, mixing modern technology with scientific greed themes, elegant lab setting with glowing instruments" />
-                <div class="shimmer-effect"></div>
-                <div class="overlay"></div>
+        <style>
+            .transition-arrow {
+                text-align: center;
+                font-size: 5rem;
+                color: #ff6b6b;
+                margin: 40px 0;
+                animation: arrowPulse 2s infinite ease-in-out;
+                filter: drop-shadow(0 0 6px #ff6b6b);
+                user-select: none;
+            }
+
+            @keyframes arrowPulse {
+
+                0%,
+                100% {
+                    transform: translateY(0) scale(1);
+                    opacity: 1;
+                    text-shadow: 0 0 10px #ff6b6b;
+                }
+
+                50% {
+                    transform: translateY(15px) scale(1.2);
+                    opacity: 0.7;
+                    text-shadow: 0 0 20px #ff6b6b;
+                }
+            }
+        </style>
+
+        <!-- Replace the transition arrow div with just the emoji and the class for animation -->
+        <div class="transition-arrow">⬇️</div>
+
+
+        <!-- Panel 2: Complications -->
+        <div class="panel" onclick="openModal(2)">
+            <div class="panel-title">Complications</div>
+            <div class="image-container" style="position: relative;">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/f4bf533c-3c99-4e12-9747-20140436c683.png"
+                    alt="Intense chaotic illustration of flooded Jatara with cracked streets submerged in deep water, abandoned cars floating, buildings tilting from subsidence, power lines down in the dark sky, desperate citizens wading with umbrellas, and government officials looking panicked at a podium under heavy rain, capturing the desperation in a moody comic palette with rain effects and dramatic angles" />
+                <div class="speech-bubble">Panic! Floods everywhere! Help our sinking city!</div>
+                <div class="extra-bubble" style="top: 50px; left: 30px; max-width: 120px;">BLUB BLUB!</div>
             </div>
-            <div class="text-content">
-                <h2>Evaluation</h2>
-                <p>One scientist introduces the GeoStabilizer, a device to prevent land subsidence, while another
-                    creates HydroPure, a machine to convert seawater into clean water. However, a new problem arises:
-                    the scientists are demanding full patent rights. If granted, this life-saving technology will be
-                    costly, leaving the residents in dire straits. The dying city risks falling into despair again, this
-                    time not because of water, but because of greed.</p>
+            <div class="sound-effect">THUD STORM</div>
+            <div class="narration">
+                Chaos exploded in every direction! Roads submerged, power obliterated, schools silenced, businesses
+                ruined. Jatara gasped in suffocating quiet. In sheer desperation, the government unleashed a
+                world-saving gauntlet—rewarding brilliant minds with fortunes to claw back their beloved city from the
+                abyss!
             </div>
         </div>
 
-        <div class="section">
-            <div class="text-content">
-                <h2>Resolution</h2>
-                <p>To avoid chaos, the city council reached a compromise. The scientists were granted a futuristic,
-                    exclusive zone as their own, complete with luxury, security, and the freedom to continue their
-                    research. In return, the GeoStabilizer and HydroPure technologies were released for public use at no
-                    extra cost. This balance allowed the city to breathe a sigh of relief—its citizens were relieved,
-                    and the scientists remained respected.</p>
+        <style>
+            .transition-arrow {
+                text-align: center;
+                font-size: 5rem;
+                color: #ff6b6b;
+                margin: 40px 0;
+                animation: arrowPulse 2s infinite ease-in-out;
+                filter: drop-shadow(0 0 6px #ff6b6b);
+                user-select: none;
+            }
+
+            @keyframes arrowPulse {
+
+                0%,
+                100% {
+                    transform: translateY(0) scale(1);
+                    opacity: 1;
+                    text-shadow: 0 0 10px #ff6b6b;
+                }
+
+                50% {
+                    transform: translateY(15px) scale(1.2);
+                    opacity: 0.7;
+                    text-shadow: 0 0 20px #ff6b6b;
+                }
+            }
+        </style>
+
+        <!-- Replace the transition arrow div with just the emoji and the class for animation -->
+        <div class="transition-arrow">⬇️</div>
+
+
+        <!-- Panel 3: Evaluation -->
+        <div class="panel" onclick="openModal(3)">
+            <div class="panel-title">Evaluation</div>
+            <div class="image-container" style="position: relative;">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/f83ea20b-b1f3-4cc3-8008-63bf131fae54.png"
+                    alt="Dynamic lab scene with diverse scientists in futuristic lab coats showcasing glowing GeoStabilizer devices preventing land cracks and HydroPure machines purifying blue water, but tension builds as they argue with city leaders over patents, illustrated in comic style with close-ups, angry expressions, floating dollar signs, and shadows of greed" />
+                <div class="speech-bubble">Our genius inventions are ours! Pay the price or stay drowned!</div>
+                <div class="extra-bubble" style="top: 40px; right: 50px; max-width: 100px;">ZAP POW!</div>
             </div>
-            <div class="image-content">
-                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/1f3e1ea1-b971-4cc9-8db8-4cececa3406d.png"
-                    alt="City council members negotiating in an opulent meeting hall, futuristic exclusive zone with scientists in luxury compounds, showing compromise with balanced technology sharing, serene atmosphere with holographic maps of the city, elegant blend of authority and innovation" />
-                <div class="shimmer-effect"></div>
-                <div class="overlay"></div>
+            <div class="sound-effect">SPARK CONFLICT</div>
+            <div class="narration">
+                Genius pioneers descended: One unveiled GeoStabilizer, the mighty fortress against land's collapse,
+                another conjured HydroPure, mystical alchemy from salty brine to life-giving elixir. But dark greed
+                reared—demanding impenetrable patents, pricing salvation beyond the desperate, plunging the city into a
+                fresh vortex of misery!
             </div>
         </div>
 
-        <div class="section">
-            <div class="image-content">
-                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/7cf700ea-69cf-4447-a0ae-721320be20eb.png"
-                    alt="Transformed Jatara by 2050 as a thriving smart city with advanced skyscrapers, greenery integrated into urban landscape, citizens using renewable energy sources, seawater treatment plants humming efficiently, eco-conscious society with solar panels and wind turbines, futuristic harmony between technology and nature" />
-                <div class="shimmer-effect"></div>
-                <div class="overlay"></div>
+        <style>
+            .transition-arrow {
+                text-align: center;
+                font-size: 5rem;
+                color: #ff6b6b;
+                margin: 40px 0;
+                animation: arrowPulse 2s infinite ease-in-out;
+                filter: drop-shadow(0 0 6px #ff6b6b);
+                user-select: none;
+            }
+
+            @keyframes arrowPulse {
+
+                0%,
+                100% {
+                    transform: translateY(0) scale(1);
+                    opacity: 1;
+                    text-shadow: 0 0 10px #ff6b6b;
+                }
+
+                50% {
+                    transform: translateY(15px) scale(1.2);
+                    opacity: 0.7;
+                    text-shadow: 0 0 20px #ff6b6b;
+                }
+            }
+        </style>
+
+        <!-- Replace the transition arrow div with just the emoji and the class for animation -->
+        <div class="transition-arrow">⬇️</div>
+
+        <!-- Panel 4: Resolution -->
+        <div class="panel" onclick="openModal(4)">
+            <div class="panel-title">Resolution</div>
+            <div class="image-container" style="position: relative;">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/27f47af4-b21c-4e03-9b16-54612b8f3820.png"
+                    alt="Harmonious council chamber scene with scientists and leaders shaking hands, signing agreements for an exclusive high-tech zone with shiny buildings, while free technologies are deployed to the city, showing smiling residents, blue skies, and unity in a triumphant comic style with warm colors and expressive characters" />
+                <div class="speech-bubble">Victory through unity—science embraces humanity!</div>
+                <div class="extra-bubble" style="bottom: 60px; left: 40px; max-width: 130px;">SHAKE HANDS</div>
             </div>
-            <div class="text-content">
-                <h2>Code</h2>
-                <p>By 2050, Jantara has transformed into a new, more advanced metropolis than ever before. Its citizens
-                    have become more environmentally conscious: waste is recycled into renewable energy, seawater is
-                    treated to produce clean water, and society is no longer repeating the mistakes of the past. The
-                    city survives not only because of technology, but also because society and science have finally
-                    learned to work hand in hand.</p>
+            <div class="sound-effect">CELEBRATION FANFARE</div>
+            <div class="narration">
+                To extinguish conflict's blaze, a brilliant accord ignited: Scientists secured a utopian exclusive
+                realm—opulence, safeguard, and innovation's throne—while GeoStabilizer and HydroPure flowed as free
+                public miracles. Hope erupted anew—folk breathed easy, science basked in eternal respect!
             </div>
         </div>
-    </main>
 
-    <footer>
-        <p>Jatara Evolves. Designed with elegance and innovation.</p>
+        <style>
+            .transition-arrow {
+                text-align: center;
+                font-size: 5rem;
+                color: #ff6b6b;
+                margin: 40px 0;
+                animation: arrowPulse 2s infinite ease-in-out;
+                filter: drop-shadow(0 0 6px #ff6b6b);
+                user-select: none;
+            }
 
-        <body>
-            FAHRI-FARHAN-NAZWA
-        </body>
+            @keyframes arrowPulse {
+
+                0%,
+                100% {
+                    transform: translateY(0) scale(1);
+                    opacity: 1;
+                    text-shadow: 0 0 10px #ff6b6b;
+                }
+
+                50% {
+                    transform: translateY(15px) scale(1.2);
+                    opacity: 0.7;
+                    text-shadow: 0 0 20px #ff6b6b;
+                }
+            }
+        </style>
+
+        <!-- Replace the transition arrow div with just the emoji and the class for animation -->
+        <div class="transition-arrow">⬇️</div>
+
+        <!-- Panel 5: Code (Future Vision) -->
+        <div class="panel" onclick="openModal(5)">
+            <div class="panel-title">Code: Future Vision</div>
+            <div class="image-container">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/ef02bc36-ed2e-44e2-a487-42f870445e00.png"
+                    alt="Futuristic vibrant illustration of Jatara in 2050 as a lush smart city with eco-friendly skyscrapers covered in solar panels, HydroPure fountains flowing clean water, recycling plants turning waste into glowing energy, cyclists on green paths, and diverse people smiling under a bright sun, in an adventurous comic style emphasizing progress and harmony" />
+                <div class="extra-bubble" style="top: 30px; left: 50px; max-width: 140px;">GO GREEN!</div>
+            </div>
+            <div class="sound-effect">HARMONY SYMPHONY</div>
+            <div class="narration">
+                Leap to 2050: Jatara ascends as an ultra-smart paradise! Eco-hearts throb—trash morphs into energy,
+                oceans birth pure nectar, folly of the past erased. Endurance's core? Genius entwined with humanity,
+                weaving indestructible bonds of triumph!
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for enlarged images -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">[X]</span>
+            <img id="modalImg" src="" alt="Enlarged Comic Panel"
+                style="max-width: 100%; height: auto; border-radius: 20px;" /
+                src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/26376ad2-4aa8-47d9-95f7-70cf99267868.png">
+        </div>
+    </div>
+
+    <footer class="text-center py-12 text-gray-300">
+        <p class="text-3xl">THANK YOU!💫</p>
     </footer>
 
     <script>
-        // JavaScript untuk interaktivitas tambahan: klik gambar untuk efek sementara
+        function openModal(panelNum) {
+            const images = {
+                1: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/41bb6b0d-a2f4-4433-962b-1dedf5a4cd58.png",
+                2: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/f4bf533c-3c99-4e12-9747-20140436c683.png",
+                3: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/f83ea20b-b1f3-4cc3-8008-63bf131fae54.png",
+                4: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/27f47af4-b21c-4e03-9b16-54612b8f3820.png",
+                5: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/ef02bc36-ed2e-44e2-a487-42f870445e00.png",
+            };
+            document.getElementById('modalImg').src = images[panelNum];
+            document.getElementById('myModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('myModal').style.display = 'none';
+        }
+
+        // Staggered panel animations
         document.addEventListener('DOMContentLoaded', function () {
-            const images = document.querySelectorAll('.image-content img');
-            images.forEach(img => {
-                img.addEventListener('click', () => {
-                    img.style.animationPlayState = 'paused';
-                    img.style.transform = 'scale(1.1)';
-                    setTimeout(() => {
-                        img.style.animationPlayState = 'running';
-                        img.style.transform = '';
-                    }, 2000);
-                });
+            const panels = document.querySelectorAll('.panel');
+            panels.forEach((panel, index) => {
+                setTimeout(() => {
+                    panel.style.animationPlayState = 'running';
+                }, index * 800);
             });
         });
     </script>
